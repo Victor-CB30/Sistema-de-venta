@@ -1,0 +1,56 @@
+# ==========================================================
+# Sistema de Venta - normalizacion de finales de linea
+# ==========================================================
+# Politica: los archivos de texto se almacenan con LF en el repositorio
+# y se mantienen con LF en el working tree, en todos los sistemas operativos.
+# Evita diffs espurios por CRLF entre Windows, Linux y macOS.
+#
+# El repositorio se desarrolla en Windows pero el proyecto es portable:
+# Maven, JavaFX y los recursos FXML/CSS no dependen de CRLF.
+
+# Regla general: Git detecta si el archivo es texto y lo normaliza a LF.
+* text=auto eol=lf
+
+# ---- Texto normalizado a LF ----
+*.java        text eol=lf
+*.xml         text eol=lf
+*.fxml        text eol=lf
+*.css         text eol=lf
+*.properties  text eol=lf
+*.md          text eol=lf
+*.json        text eol=lf
+*.jsonc       text eol=lf
+
+# ---- Otros archivos de texto frecuentes en el proyecto ----
+*.yml         text eol=lf
+*.yaml        text eol=lf
+*.sql         text eol=lf
+*.txt         text eol=lf
+*.gitignore   text eol=lf
+*.gitattributes text eol=lf
+
+# ---- Scripts de Windows: requieren CRLF por el interprete de comandos ----
+*.bat         text eol=crlf
+*.cmd         text eol=crlf
+
+# ---- Binarios: nunca se convierten ----
+*.jar         binary
+*.war         binary
+*.zip         binary
+*.gz          binary
+*.7z          binary
+*.png         binary
+*.jpg         binary
+*.jpeg        binary
+*.gif         binary
+*.ico         binary
+*.bmp         binary
+*.pdf         binary
+*.exe         binary
+*.msi         binary
+*.dll         binary
+*.so          binary
+*.dylib       binary
+*.db          binary
+*.mdb         binary
+*.log         binary
