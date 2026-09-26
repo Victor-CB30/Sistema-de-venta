@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<!--
+    Sistema de Venta - vista minima de arranque (Fase 2).
+
+    El texto visible lo completa MainViewController en codigo Java para
+    que todos los literales con acentos vivan en fuentes UTF-8 y no en
+    este recurso.
+
+    No contiene logica de negocio ni acceso a datos.
+-->
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="py.com.sistemaventa.presentation.MainViewController"
+      styleClass="root"
+      alignment="CENTER"
+      spacing="16">
+
+    <children>
+        <Label fx:id="tituloLabel" styleClass="titulo" text="Sistema de Venta"/>
+
+        <Label fx:id="mensajeLabel" styleClass="mensaje" text=""/>
+
+        <Label fx:id="versionLabel" styleClass="detalle" text=""/>
+
+        <Label fx:id="entornoLabel" styleClass="detalle" text=""/>
+
+        <Label fx:id="estadoLabel" styleClass="estado" text=""/>
+    </children>
+</VBox>

@@ -4,7 +4,10 @@
 **Estado:** Completada.
 
 ## Fase 2 — Proyecto base y arquitectura
-Maven, módulos/paquetes, composición, logging y configuración inicial.
+**Estado:** Completada.
+
+Maven, estructura de paquetes, composición, logging y configuración inicial.
+Detalle en `docs/FASE_2.md`.
 
 ## Fase 3 — Base de datos y migraciones
 Esquema inicial MySQL y migraciones Flyway.

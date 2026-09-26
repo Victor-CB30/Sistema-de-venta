@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Sistema de Venta - configuracion de Logback para las pruebas.
+
+    Logback prioriza logback-test.xml sobre logback.xml cuando esta en el
+    classpath de pruebas. Se desactiva el appender de archivo para que las
+    pruebas no dejen archivos abiertos sobre los directorios temporales
+    (en Windows un archivo abierto impide el borrado del directorio).
+-->
+<configuration>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level %logger{20} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="WARN">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
