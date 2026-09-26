@@ -51,11 +51,13 @@ $env:Path = "$env:JAVA_HOME\bin;$env:Path"
 | `mvn clean` | Elimina `target/` |
 | `mvn compile` | Compila las fuentes |
 | `mvn test` | Ejecuta las pruebas unitarias |
-| `mvn clean verify` | Compila, prueba y empaqueta `target/sistema-venta.jar` |
+| `mvn clean verify` | Compila, prueba y genera el JAR de la aplicación en `target/sistema-venta.jar` |
 | `mvn javafx:run` | **Ejecuta la aplicación** (abre la ventana) |
 | `mvn javafx:run --debug` | Ejecuta con depurador JDWP en el puerto 5005 |
 
 `mvn javafx:run` abre una ventana titulada **Sistema de Venta** con un mensaje de inicio correcto, la versión de la aplicación y el entorno de ejecución.
+
+> `target/sistema-venta.jar` **no es un JAR autónomo**: las dependencias (JavaFX, SLF4J, Logback) no se empaquetan dentro del artefacto, por lo que no se ejecuta de forma independiente con `java -jar`. Para ejecutar la aplicación se usa `mvn javafx:run`. El empaquetado distribuible de Windows se hará más adelante con `jpackage`.
 
 ---
 

@@ -388,7 +388,7 @@ Los problemas 8 y 9 solo se detectaron ejecutando la aplicación real; ninguna d
 
 ## 13. Estado final
 
-La Fase 2 está **completada**. El proyecto compila, las 25 pruebas pasan, `mvn clean verify` produce un JAR ejecutable y `mvn javafx:run` abre la ventana mínima con FXML y CSS.
+La Fase 2 está **completada**. El proyecto compila, las 25 pruebas pasan, `mvn clean verify` genera el JAR de la aplicación en `target/sistema-venta.jar` y `mvn javafx:run` abre la ventana mínima con FXML y CSS.
 
 La arquitectura por capas de `PROJECT_SPEC.md` está materializada en el árbol de paquetes y cada frontera está documentada en su `package-info.java`. Los componentes transversales que todavía no tienen implementación (`security`, `validation`, `transaction`, `audit`, `reporting`) y las capas `domain`, `repository` y `persistence` están reservados y sin clases vacías.
 
@@ -408,4 +408,8 @@ Se espera:
 - Diseño de tablas alineado con `PROJECT_SPEC.md`: `Documento` como entidad base, `Guaranies` en `DECIMAL(15,0)`, `Cantidad` en `DECIMAL(12,3)`, porcentajes en `DECIMAL(5,2)`, costos en `DECIMAL(15,4)`.
 - Separación de usuarios de base de datos: uno de aplicación con privilegios mínimos y otro para migraciones, con credenciales fuera del código.
 
-Decisión pendiente antes de empezar la Fase 3: la biblioteca concreta que PROVIDe BCrypt y el artifact a declarar en el POM. `PROJECT_SPEC.md` fija BCrypt con costo 12, pero no el origen de la implementación; conviene resolverlo al abrir la fase para no bloquear la Fase 6.
+La Fase 3 no depende de ninguna decisión sobre BCrypt. La implementación concreta de BCrypt y el artifact a declarar en el POM quedan **pendientes para la Fase 6 — Seguridad y autenticación**, que es la fase donde se usan. El requisito ya congelado en `PROJECT_SPEC.md` se mantiene sin cambios: contraseñas con **BCrypt, costo 12**.
+
+### Notas de alcance
+
+El empaquetado distribuible de Windows se resolverá más adelante, con `jpackage`, según lo fijado en `PROJECT_SPEC.md`. En esta fase `mvn clean verify` se limita a generar el JAR de la aplicación en `target/sistema-venta.jar`: **no es un JAR autónomo y no se ejecuta de forma independiente con `java -jar`**, porque las dependencias (JavaFX, SLF4J, Logback) todavía no se empaquetan dentro del artefacto. La aplicación se ejecuta con `mvn javafx:run`. No se agregó Maven Shade ni un fat JAR, y no se declaran dependencias nuevas.
